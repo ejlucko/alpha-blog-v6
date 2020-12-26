@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-  
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def show
@@ -28,7 +27,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      flash[:notice] = "Article was updated successfully"
+      flash[:notice] = "Article was updated successfully."
       redirect_to @article
     else
       render 'edit'
@@ -41,7 +40,7 @@ class ArticlesController < ApplicationController
   end
 
   private
-  
+
   def set_article
     @article = Article.find(params[:id])
   end
@@ -49,4 +48,5 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(:title, :description)
   end
+
 end
